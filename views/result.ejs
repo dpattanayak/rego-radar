@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Result</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <%- include('partials/loading') %>
+    <div class="container">
+      <div class="card-terminal">
+        <div class="card-terminal-heading">
+          <h2 id="searchResult">Search Result</h2>
+        </div>
+        <div class="card-terminal-content">
+          <pre id="typingResult">
+<span class="typing-block">Registration Number :   <%= locals.resultData.regn_no %></span>
+
+<span class="typing-block">Registration Date   :   <%= locals.resultData.regn_dt %></span>
+
+<span class="typing-block">Owner Name          :   <%= locals.resultData.owner_name %></span>
+
+<span class="typing-block">Father's Name       :   <%= locals.resultData.f_name %></span>
+
+<span class="typing-block">Chassis Number      :   <%= locals.resultData.chasi_no %></span>
+
+<span class="typing-block">Mobile Number       :   <%= locals.resultData.mobile_no %></span>
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let video = document.getElementById("backgroundVideo");
+      if (window.innerWidth <= 600) {
+        video.src = "videos/result-mobile.mp4";
+      } else {
+        video.src = "videos/result-desktop.mp4";
+      }
+    </script>
+</body>
+
+</html>

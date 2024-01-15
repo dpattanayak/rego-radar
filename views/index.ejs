@@ -1,0 +1,35 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Page</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <div id="defaultBG" style="display: block;">
+    <%- include('partials/background') %>
+  </div>
+  <div id="loadingScreen" style="display: none;">
+    <%- include('partials/loading') %>
+  </div>
+
+  <div class="container">
+    <form id="searchForm" onsubmit="return submitForm(event)">
+      <div class="search-terminal">
+        <input type="text" class="search-input" name="regn_no" placeholder="Enter Vehicle Number" maxlength="11"
+          minlength="9" required oninput="formatInput(this)">
+        <small id="errorText" class="error-text" style="display: none;"></small>
+        <button type="submit" id="submitButton" class="submit-button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="../js/index.js"></script>
+</body>
+
+</html>
