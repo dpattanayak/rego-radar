@@ -73,6 +73,8 @@ app.post("/search", validateApiKey, async (req, res) => {
       .then(() => true)
       .catch(() => false);
 
+    console.log("fileExists : ", fileExists);
+
     if (fileExists) {
       // Read the existing data from the file
       const fileData = await fs.readFile(filePath, "utf-8");
@@ -116,15 +118,10 @@ app.post("/search", validateApiKey, async (req, res) => {
         mobile_no: apiResponse.data.mobile_no,
       };
 
-      console.log("apiResponse : ", apiResponse.data);
+      console.log("apiResponse : ", apiResponse);
 
-      if (apiResponse.status === 200) {
-        if (apiResponse.data.message === "success") {
-          await fs.writeFile(
-            filePath,
-            JSON.stringify(apiResponse.data, null, 2)
-          );
-        }
+      if (apiResponse.data.message === "success") {
+        await fs.writeFile(filePath, JSON.stringify(apiResponse.data, null, 2));
 
         // res.render("result", { resultData });
         res.json(resultData);
