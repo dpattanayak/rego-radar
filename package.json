@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "build": "node obfuscate.js",
-    "host": "firebase init hosting",
-    "deploy": "firebase deploy"
+    "build": "node obfuscate.js"
   },
   "keywords": [],
   "author": "",

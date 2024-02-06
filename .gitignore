@@ -52,7 +52,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-public
+public/results
 
 # Gatsby files
 .cache/

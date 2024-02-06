@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+body {
+  position: relative;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.search-terminal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  border: 2px solid transparent;
+  border-image-slice: 1;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 0px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+.submit-button {
+  padding: 10px 15px;
+  outline: none;
+  background: #0000009f;
+  color: cyan;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.502);
+  border-left: 1px solid rgba(0, 255, 255, 0.502);
+  border-right: 1px solid rgba(0, 255, 255, 0.502);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+.submit-button:hover {
+  background-color: #003366;
+}
+
+.submit-button:disabled {
+  background-color: #ff110063;
+  border-color: #ff110063;
+  color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.error-text {
+  text-align: center;
+  color: #ff1100;
+  width: 100%;
+  padding: 10px;
+  border: 0px;
+  font-size: 10px;
+}
+
+.card-terminal {
+  background-color: #0000009f;
+  color: #00ff007d;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: popupFadeIn 0.5s forwards;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+.card-terminal .card-terminal-heading {
+  background-color: #001f3f76;
+  color: #00ff007d;
+  margin: 0;
+  padding: 5px 15px;
+  border-bottom: 1px solid #003366;
+}
+
+.card-terminal-content {
+  padding: 20px;
+  white-space: pre-line;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow: hidden;
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1000;
+  }
+}
+
+#searchResult {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#searchResult::after {
+  content: "|";
+  animation: blinkCursor 0.7s infinite alternate;
+}
+
+#typingResult span {
+  line-height: 2;
+}
+
+@keyframes blinkCursor {
+  to {
+    opacity: 0;
+  }
+}
+
+#searchResult {
+  animation: typingAnimation 3s steps(40) forwards;
+}
+
+@keyframes typingAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
