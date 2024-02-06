@@ -51,6 +51,9 @@ app.get("/result", (req, res) => {
     owner_name: decodeURIComponent(req.query.owner_name),
     f_name: decodeURIComponent(req.query.f_name),
     chasi_no: decodeURIComponent(req.query.chasi_no),
+    c_add1: decodeURIComponent(req.query.c_add1),
+    c_add2: decodeURIComponent(req.query.c_add2),
+    c_add3: decodeURIComponent(req.query.c_add3),
     mobile_no: decodeURIComponent(req.query.mobile_no),
   };
   res.render("result", { resultData });
@@ -80,6 +83,9 @@ app.post("/search", validateApiKey, async (req, res) => {
         owner_name: resultData.owner_name,
         f_name: resultData.f_name,
         chasi_no: resultData.chasi_no,
+        c_add1: resultData.c_add1,
+        c_add2: resultData.c_add2,
+        c_add3: resultData.c_add3,
         mobile_no: resultData.mobile_no,
       };
       // res.render("result", { resultData });
@@ -104,10 +110,13 @@ app.post("/search", validateApiKey, async (req, res) => {
         owner_name: apiResponse.data.owner_name,
         f_name: apiResponse.data.f_name,
         chasi_no: apiResponse.data.chasi_no,
+        c_add1: apiResponse.data.c_add1,
+        c_add2: apiResponse.data.c_add2,
+        c_add3: apiResponse.data.c_add3,
         mobile_no: apiResponse.data.mobile_no,
       };
 
-      console.log("apiResponse : ", apiResponse.data.message);
+      console.log("apiResponse : ", apiResponse.data);
 
       if (apiResponse.status === 200) {
         if (apiResponse.data.message === "success") {

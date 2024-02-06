@@ -78,7 +78,10 @@ async function submitForm(event) {
         response.f_name
       )}&chasi_no=${encodeURIComponent(
         response.chasi_no
-      )}&mobile_no=${encodeURIComponent(response.mobile_no)}`;
+      )}&mobile_no=${encodeURIComponent(response.mobile_no)}
+      &c_add1=${encodeURIComponent(response.c_add1)}
+      &c_add2=${encodeURIComponent(response.c_add2)}
+      &c_add3=${encodeURIComponent(response.c_add3)}`;
 
       form.reset();
       hideLoadingScreen();
