@@ -121,7 +121,7 @@ app.post("/search", validateApiKey, async (req, res) => {
       console.log("apiResponse : ", apiResponse);
 
       if (apiResponse.data.message === "success") {
-        await fs.writeFile(filePath, JSON.stringify(apiResponse.data, null, 2));
+        // await fs.writeFile(filePath, JSON.stringify(apiResponse.data, null, 2));
 
         // res.render("result", { resultData });
         res.json(resultData);
